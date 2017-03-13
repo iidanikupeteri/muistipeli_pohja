@@ -1,12 +1,15 @@
 var kortit=new Array('sininen','sininen','punainen','punainen','vihrea','vihrea', 'oranssi','oranssi', 'violetti','violetti', 'ruskea','ruskea');
 var ekaKortti='';
-
+//counter
+var arvauksia=0;
 
 $(document).ready(function(){
 	$('#aloita').click(function(e) {
-				//SHUFFLE TOIMII JEE
-				kortit.sort(function() { return 0.5 - Math.random() });
-		
+		//SHUFFLE 
+		kortit.sort(function() { return 0.5 - Math.random() });
+		//counter nollaaminen
+		arvauksia=0;
+		$("#arvauksia").html(0);
 		$('#pelialue').empty();
 		$.each(kortit, function(key,value) {
 			$('#pelialue').append("<div id='" + key + "' class='" + value + 
@@ -34,6 +37,7 @@ $(document).ready(function(){
 						ekaKortti='';
 					});
 				}
+					
 			}		
 		}
 	}
